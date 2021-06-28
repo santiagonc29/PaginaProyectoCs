@@ -1,0 +1,43 @@
+﻿@model AppPrueba.Models.registros
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>registros</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.categorias.NombreCate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categorias.NombreCate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productos.NombreProd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productos.NombreProd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proveedores.nombreProv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proveedores.nombreProv)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdReg }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

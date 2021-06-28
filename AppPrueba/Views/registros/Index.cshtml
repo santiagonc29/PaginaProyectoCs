@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AppPrueba.Models.registros>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.categorias.NombreCate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productos.NombreProd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.proveedores.nombreProv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.categorias.NombreCate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productos.NombreProd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.proveedores.nombreProv)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdReg }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdReg }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdReg })
+        </td>
+    </tr>
+}
+
+</table>

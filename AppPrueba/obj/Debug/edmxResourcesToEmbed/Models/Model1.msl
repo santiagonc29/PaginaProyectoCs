@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TecnoHardDBModelStoreContainer" CdmEntityContainer="TecnoHardDBEntities">
+    <EntitySetMapping Name="categorias">
+      <EntityTypeMapping TypeName="TecnoHardDBModel.categorias">
+        <MappingFragment StoreEntitySet="categorias">
+          <ScalarProperty Name="IdCate" ColumnName="IdCate" />
+          <ScalarProperty Name="NombreCate" ColumnName="NombreCate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos">
+      <EntityTypeMapping TypeName="TecnoHardDBModel.productos">
+        <MappingFragment StoreEntitySet="productos">
+          <ScalarProperty Name="IdProd" ColumnName="IdProd" />
+          <ScalarProperty Name="NombreProd" ColumnName="NombreProd" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="proveedores">
+      <EntityTypeMapping TypeName="TecnoHardDBModel.proveedores">
+        <MappingFragment StoreEntitySet="proveedores">
+          <ScalarProperty Name="IdProv" ColumnName="IdProv" />
+          <ScalarProperty Name="nombreProv" ColumnName="nombreProv" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="registros">
+      <EntityTypeMapping TypeName="TecnoHardDBModel.registros">
+        <MappingFragment StoreEntitySet="registros">
+          <ScalarProperty Name="IdReg" ColumnName="IdReg" />
+          <ScalarProperty Name="IdProd" ColumnName="IdProd" />
+          <ScalarProperty Name="IdCate" ColumnName="IdCate" />
+          <ScalarProperty Name="IdProv" ColumnName="IdProv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

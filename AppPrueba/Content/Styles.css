@@ -1,0 +1,108 @@
+﻿
+.navbar {
+    background: rgb(20, 30, 48);
+    background: linear-gradient( 135deg, rgba(20, 30, 48, 1) 23%, rgba(36, 59, 85, 1) 90% );
+    height: 80px;
+}
+
+
+#logo-nav {
+    margin-top: 2px;
+    margin-left: 15px;
+    width: 120px;
+}
+
+.nav-item {
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 23px;
+}
+
+.nav-link {
+    transition: opacity 200ms ease-in-out;
+    overflow: hidden;
+}
+
+    .nav-link::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #f4f6f6;
+        transition: width 200ms ease-in-out;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+footer {
+    width: 100%;
+    background-image: linear-gradient(#181b1e, #101213);
+    color: #d4d5d6;
+}
+
+.container body-content {
+    width: 100%;
+}
+
+.carousel-inner {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+}
+
+.cont {
+    background-color: #ffff;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+}
+
+
+footer > .container {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.icon {
+    margin-top: 10px;
+    margin-left: 9px;
+    margin-right: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: floralwhite;
+    width: 35px;
+    height: 35px;
+}
+
+.fb:hover {
+    background-color: #1977f3;
+}
+
+.tw:hover {
+    background-color: #00acee;
+}
+
+.ig:hover {
+    background-color: #fa143f;
+}
+
+.wa:hover {
+    background-color: #25d366;
+}
+
+#Email {
+    text-decoration: none;
+    color: #d4d5d6;
+}
+
+    #Email:hover {
+        color: #ffff;
+    }
+
+.sep-bar {
+    display: none;
+}

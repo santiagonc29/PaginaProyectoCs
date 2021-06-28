@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TecnoHardDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="IdCate" />
+          </Key>
+          <Property Name="IdCate" Type="int" Nullable="false" />
+          <Property Name="NombreCate" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="IdProd" />
+          </Key>
+          <Property Name="IdProd" Type="int" Nullable="false" />
+          <Property Name="NombreProd" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="precio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proveedores">
+          <Key>
+            <PropertyRef Name="IdProv" />
+          </Key>
+          <Property Name="IdProv" Type="int" Nullable="false" />
+          <Property Name="nombreProv" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="cant" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="registros">
+          <Key>
+            <PropertyRef Name="IdReg" />
+          </Key>
+          <Property Name="IdReg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProd" Type="int" Nullable="false" />
+          <Property Name="IdCate" Type="int" Nullable="false" />
+          <Property Name="IdProv" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="registros" Type="Self.registros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="IdCate" />
+            </Principal>
+            <Dependent Role="registros">
+              <PropertyRef Name="IdCate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_productos">
+          <End Role="productos" Type="Self.productos" Multiplicity="1" />
+          <End Role="registros" Type="Self.registros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="IdProd" />
+            </Principal>
+            <Dependent Role="registros">
+              <PropertyRef Name="IdProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proveedores">
+          <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+          <End Role="registros" Type="Self.registros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedores">
+              <PropertyRef Name="IdProv" />
+            </Principal>
+            <Dependent Role="registros">
+              <PropertyRef Name="IdProv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TecnoHardDBModelStoreContainer">
+          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos" EntityType="Self.productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proveedores" EntityType="Self.proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="registros" EntityType="Self.registros" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_categorias" Association="Self.fk_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="registros" EntitySet="registros" />
+          </AssociationSet>
+          <AssociationSet Name="fk_productos" Association="Self.fk_productos">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="registros" EntitySet="registros" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proveedores" Association="Self.fk_proveedores">
+            <End Role="proveedores" EntitySet="proveedores" />
+            <End Role="registros" EntitySet="registros" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TecnoHardDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="IdCate" />
+          </Key>
+          <Property Name="IdCate" Type="Int32" Nullable="false" />
+          <Property Name="NombreCate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="registros" Relationship="Self.fk_categorias" FromRole="categorias" ToRole="registros" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="IdProd" />
+          </Key>
+          <Property Name="IdProd" Type="Int32" Nullable="false" />
+          <Property Name="NombreProd" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="registros" Relationship="Self.fk_productos" FromRole="productos" ToRole="registros" />
+        </EntityType>
+        <EntityType Name="proveedores">
+          <Key>
+            <PropertyRef Name="IdProv" />
+          </Key>
+          <Property Name="IdProv" Type="Int32" Nullable="false" />
+          <Property Name="nombreProv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cant" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="registros" Relationship="Self.fk_proveedores" FromRole="proveedores" ToRole="registros" />
+        </EntityType>
+        <EntityType Name="registros">
+          <Key>
+            <PropertyRef Name="IdReg" />
+          </Key>
+          <Property Name="IdReg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProd" Type="Int32" Nullable="false" />
+          <Property Name="IdCate" Type="Int32" Nullable="false" />
+          <Property Name="IdProv" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="categorias" Relationship="Self.fk_categorias" FromRole="registros" ToRole="categorias" />
+          <NavigationProperty Name="productos" Relationship="Self.fk_productos" FromRole="registros" ToRole="productos" />
+          <NavigationProperty Name="proveedores" Relationship="Self.fk_proveedores" FromRole="registros" ToRole="proveedores" />
+        </EntityType>
+        <Association Name="fk_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="registros" Type="Self.registros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="IdCate" />
+            </Principal>
+            <Dependent Role="registros">
+              <PropertyRef Name="IdCate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_productos">
+          <End Role="productos" Type="Self.productos" Multiplicity="1" />
+          <End Role="registros" Type="Self.registros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="IdProd" />
+            </Principal>
+            <Dependent Role="registros">
+              <PropertyRef Name="IdProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proveedores">
+          <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+          <End Role="registros" Type="Self.registros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedores">
+              <PropertyRef Name="IdProv" />
+            </Principal>
+            <Dependent Role="registros">
+              <PropertyRef Name="IdProv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TecnoHardDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categorias" EntityType="Self.categorias" />
+          <EntitySet Name="productos" EntityType="Self.productos" />
+          <EntitySet Name="proveedores" EntityType="Self.proveedores" />
+          <EntitySet Name="registros" EntityType="Self.registros" />
+          <AssociationSet Name="fk_categorias" Association="Self.fk_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="registros" EntitySet="registros" />
+          </AssociationSet>
+          <AssociationSet Name="fk_productos" Association="Self.fk_productos">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="registros" EntitySet="registros" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proveedores" Association="Self.fk_proveedores">
+            <End Role="proveedores" EntitySet="proveedores" />
+            <End Role="registros" EntitySet="registros" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TecnoHardDBModelStoreContainer" CdmEntityContainer="TecnoHardDBEntities">
+          <EntitySetMapping Name="categorias">
+            <EntityTypeMapping TypeName="TecnoHardDBModel.categorias">
+              <MappingFragment StoreEntitySet="categorias">
+                <ScalarProperty Name="IdCate" ColumnName="IdCate" />
+                <ScalarProperty Name="NombreCate" ColumnName="NombreCate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productos">
+            <EntityTypeMapping TypeName="TecnoHardDBModel.productos">
+              <MappingFragment StoreEntitySet="productos">
+                <ScalarProperty Name="IdProd" ColumnName="IdProd" />
+                <ScalarProperty Name="NombreProd" ColumnName="NombreProd" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proveedores">
+            <EntityTypeMapping TypeName="TecnoHardDBModel.proveedores">
+              <MappingFragment StoreEntitySet="proveedores">
+                <ScalarProperty Name="IdProv" ColumnName="IdProv" />
+                <ScalarProperty Name="nombreProv" ColumnName="nombreProv" />
+                <ScalarProperty Name="cant" ColumnName="cant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registros">
+            <EntityTypeMapping TypeName="TecnoHardDBModel.registros">
+              <MappingFragment StoreEntitySet="registros">
+                <ScalarProperty Name="IdReg" ColumnName="IdReg" />
+                <ScalarProperty Name="IdProd" ColumnName="IdProd" />
+                <ScalarProperty Name="IdCate" ColumnName="IdCate" />
+                <ScalarProperty Name="IdProv" ColumnName="IdProv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

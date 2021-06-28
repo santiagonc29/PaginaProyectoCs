@@ -1,0 +1,213 @@
+﻿.map {
+    width: 720px;
+    height: 470px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+    background-color: #ffff;
+    padding: 10px;
+}
+
+contenedor1 > .container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.parent-rs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.rs {
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    width: 90%;
+    height: 200px;
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: box-shadow, transform;
+}
+
+    .rs:hover {
+        box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+        transform: scale(1.1);
+    }
+
+#ic-fb {
+    background-image: url("../icons/facebook.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 23%;
+    background-color: #1977f3;
+}
+
+#ic-tw {
+    background-image: url("../icons/twitter.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 23%;
+    background-color: #00acee;
+}
+
+#ic-ig {
+    background-image: url("../icons/instagram.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 23%;
+    background-color: #fa143f;
+}
+
+#ic-wa {
+    background-image: url("../icons/whatsapp.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 23%;
+    background-color: #25d366;
+}
+
+/*Vista productos*/
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    height: 400px;
+}
+
+.cont-p {
+    text-align: center;
+    height: 370px;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+    background: #ffca00;
+}
+
+.parent > a {
+    text-decoration: none;
+    color: #101213;
+}
+
+    .parent > a:hover {
+        color: #101213;
+    }
+
+.cont-p:hover {
+    box-shadow: 10px 10px 10px rgba(255, 202, 0, 0.356);
+}
+
+.cont-img-p {
+    height: 50%;
+    width: 90%;
+    margin-left: 5%;
+    padding: 15px;
+    border-radius: 20px;
+    background: #fff;
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+}
+
+    .cont-img-p:hover {
+        filter: grayscale(0);
+    }
+
+#img-tec {
+    padding-top: 25px;
+}
+
+#img-m {
+    padding-top: 25px;
+}
+
+
+
+/*Vista Vision*/
+.cont-txt {
+    height: 380px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+    background-color: #ffff;
+}
+
+#QS {
+    margin-bottom: 30px;
+}
+/*Estilos vista ofertas*/
+.cont-off{
+    height: 1100px;
+}
+.parent-of {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    height: 800px;
+    margin-bottom: 30px;
+}
+
+.div1 {
+    grid-area: 1 / 1 / 2 / 2;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+    background: #ffff;
+    padding: 10px;
+}
+
+.div2 {
+    grid-area: 1 / 2 / 2 / 3;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+    background: #ffff;
+    padding: 10px;
+}
+
+.div3 {
+    grid-area: 1 / 3 / 2 / 4;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+    background: #ffff;
+    padding: 10px;
+}
+
+.div4 {
+    grid-area: 2 / 1 / 3 / 2;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+    background: #ffff;
+    padding: 10px;
+}
+
+.div5 {
+    grid-area: 2 / 2 / 3 / 3;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+    background: #ffff;
+    padding: 10px;
+}
+
+.div6 {
+    grid-area: 2 / 3 / 3 / 4;
+    background: #ffff;
+    box-shadow: 10px 10px 10px rgba(151, 151, 151, 0.356);
+    padding: 10px;
+}

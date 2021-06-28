@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TecnoHardDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="categorias">
+    <Key>
+      <PropertyRef Name="IdCate" />
+    </Key>
+    <Property Name="IdCate" Type="Int32" Nullable="false" />
+    <Property Name="NombreCate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="registros" Relationship="Self.fk_categorias" FromRole="categorias" ToRole="registros" />
+  </EntityType>
+  <EntityType Name="productos">
+    <Key>
+      <PropertyRef Name="IdProd" />
+    </Key>
+    <Property Name="IdProd" Type="Int32" Nullable="false" />
+    <Property Name="NombreProd" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="precio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="registros" Relationship="Self.fk_productos" FromRole="productos" ToRole="registros" />
+  </EntityType>
+  <EntityType Name="proveedores">
+    <Key>
+      <PropertyRef Name="IdProv" />
+    </Key>
+    <Property Name="IdProv" Type="Int32" Nullable="false" />
+    <Property Name="nombreProv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cant" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="registros" Relationship="Self.fk_proveedores" FromRole="proveedores" ToRole="registros" />
+  </EntityType>
+  <EntityType Name="registros">
+    <Key>
+      <PropertyRef Name="IdReg" />
+    </Key>
+    <Property Name="IdReg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdProd" Type="Int32" Nullable="false" />
+    <Property Name="IdCate" Type="Int32" Nullable="false" />
+    <Property Name="IdProv" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="categorias" Relationship="Self.fk_categorias" FromRole="registros" ToRole="categorias" />
+    <NavigationProperty Name="productos" Relationship="Self.fk_productos" FromRole="registros" ToRole="productos" />
+    <NavigationProperty Name="proveedores" Relationship="Self.fk_proveedores" FromRole="registros" ToRole="proveedores" />
+  </EntityType>
+  <Association Name="fk_categorias">
+    <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+    <End Role="registros" Type="Self.registros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorias">
+        <PropertyRef Name="IdCate" />
+      </Principal>
+      <Dependent Role="registros">
+        <PropertyRef Name="IdCate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_productos">
+    <End Role="productos" Type="Self.productos" Multiplicity="1" />
+    <End Role="registros" Type="Self.registros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productos">
+        <PropertyRef Name="IdProd" />
+      </Principal>
+      <Dependent Role="registros">
+        <PropertyRef Name="IdProd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_proveedores">
+    <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+    <End Role="registros" Type="Self.registros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proveedores">
+        <PropertyRef Name="IdProv" />
+      </Principal>
+      <Dependent Role="registros">
+        <PropertyRef Name="IdProv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TecnoHardDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categorias" EntityType="Self.categorias" />
+    <EntitySet Name="productos" EntityType="Self.productos" />
+    <EntitySet Name="proveedores" EntityType="Self.proveedores" />
+    <EntitySet Name="registros" EntityType="Self.registros" />
+    <AssociationSet Name="fk_categorias" Association="Self.fk_categorias">
+      <End Role="categorias" EntitySet="categorias" />
+      <End Role="registros" EntitySet="registros" />
+    </AssociationSet>
+    <AssociationSet Name="fk_productos" Association="Self.fk_productos">
+      <End Role="productos" EntitySet="productos" />
+      <End Role="registros" EntitySet="registros" />
+    </AssociationSet>
+    <AssociationSet Name="fk_proveedores" Association="Self.fk_proveedores">
+      <End Role="proveedores" EntitySet="proveedores" />
+      <End Role="registros" EntitySet="registros" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

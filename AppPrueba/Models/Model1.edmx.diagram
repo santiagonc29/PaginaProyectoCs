@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="52bfc8a47fb4467cb598d3b6b33e33a5" Name="Diagram1">
+        <EntityTypeShape EntityType="TecnoHardDBModel.categorias" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TecnoHardDBModel.productos" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TecnoHardDBModel.proveedores" Width="1.5" PointX="5.375" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TecnoHardDBModel.registros" Width="1.5" PointX="4.375" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TecnoHardDBModel.fk_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="TecnoHardDBModel.fk_productos" ManuallyRouted="false" />
+        <AssociationConnector Association="TecnoHardDBModel.fk_proveedores" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
